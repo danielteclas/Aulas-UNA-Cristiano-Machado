@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+public class Main {
+
+public static int soma(int a, int b, int resultado) {
+  resultado = a+b;
+  return resultado;
+}
+
+public static int subtracao(int a, int b, int resultado) {
+ resultado = a-b;
+ return resultado;
+}
+  
+public static int multiplicacao(int a, int b, int resultado) {
+  int i = b;
+  while (i>0) {
+  resultado += a; i--;
+  } 
+  return resultado;
+}
+  
+public static void main(String[] args) {
+
+  int opcao, aguarda = 0;
+  int a, b, resultado = 0;
+  Scanner keyboard = new Scanner(System.in);
+
+   while (aguarda == 0) {
+    System.out.println("--------------------------\nSelecione uma opção:\n1 - Soma de dois números \n2 - Subtração de dois números \n3 - Multiplicação de dois números \n0 - Encerrar\n--------------------------");
+
+    opcao = keyboard.nextInt();
+     
+    switch (opcao) {
+      case 0: System.out.println("*Programa encerrado*"); aguarda = 1;
+      break;
+        
+      case 1:   
+      System.out.println("Digite o 1º número inteiro:");
+      a = keyboard.nextInt();
+      System.out.println("Digite o 2º número inteiro:");
+      b = keyboard.nextInt();
+      resultado = soma(a, b, resultado);
+      System.out.println("Resultado: " + resultado);
+      break;
+             
+      case 2:
+      System.out.println("Digite o 1º número inteiro:");
+      a = keyboard.nextInt();
+      System.out.println("Digite o 2º número inteiro:");
+      b = keyboard.nextInt();
+      resultado = subtracao(a, b, resultado);
+      System.out.println("Resultado: " + resultado);
+      break;
+        
+      case 3:  
+      System.out.println("Digite o 1º número inteiro:");
+      a = keyboard.nextInt();
+      System.out.println("Digite o 2º número inteiro:");
+      b = keyboard.nextInt();
+      resultado = multiplicacao(a, b, resultado);
+      System.out.println("Resultado: " + resultado);
+      break;
+                    
+      default: System.out.println("Opção inválida");
+      break;
+     }
+   }
+  
+ }
+}
