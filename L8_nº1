@@ -1,0 +1,123 @@
+import java.util.Scanner;
+ 
+public class Main {
+ 
+public static void dobro() {
+// Um número inteiro e que retorne o dobro deste número
+  int a, resultado;
+  Scanner keyboard = new Scanner(System.in);
+  
+  System.out.println("Digite o número inteiro:");
+  a = keyboard.nextInt();
+  resultado = a*2;
+  System.out.println("O dobro de " + a + " é " + resultado);
+}
+ 
+public static void maior() {
+// Dois números inteiros e que retorne o maior entre eles
+  int a, b;
+  Scanner keyboard = new Scanner(System.in);
+ 
+  System.out.println("Digite o primeiro número inteiro:");
+  a = keyboard.nextInt();
+  System.out.println("Digite o segundo número inteiro:");
+  b = keyboard.nextInt();
+ 
+  if (a > b) {
+    System.out.println(a + " é maior que " + b);
+  } else if (b > a) {
+    System.out.println(b + " é maior que " + a);
+  } else {
+    System.out.println("Os números informados são iguais");
+  }
+}
+ 
+public static void media_arit() {
+// Três números reais e que retorne a média aritmética desses três números
+  float a, b, c, resultado;
+  Scanner keyboard = new Scanner(System.in);
+ 
+  System.out.println("Digite o primeiro número:");
+  a = keyboard.nextFloat();
+  System.out.println("Digite o segundo número:");
+  b = keyboard.nextFloat();
+  System.out.println("Digite o terceiro número:");
+  c = keyboard.nextFloat();
+  resultado = (a+b+c)/3;
+  System.out.println("A média dos números é " + resultado);
+}
+ 
+public static void fatorial() {
+// Um número inteiro e que retorne o valor do fatorial deste número
+  int i, resultado=0;
+  Scanner keyboard = new Scanner(System.in);
+ 
+  System.out.println("Digite o número inteiro:");
+  resultado = keyboard.nextInt();
+  i = resultado;
+ 
+  while (i > 1) {
+    resultado = resultado*(i-1); i--;
+  }
+  System.out.println("O resultado é " + resultado);
+ 
+  /* ou mais complicado:
+  resultado = a*(a-1);  
+  for (int i=a-2; i>=1; i--) {
+    resultado = resultado*i;    
+  }
+  System.out.println("O fatorial de " + a + " é " + resultado); */
+}
+ 
+public static int soma_int(int i) {
+// Um número inteiro e positivo, que retorne a soma dos elementos inteiros existentes entre 1 e o número (inclusive)
+  Scanner keyboard = new Scanner(System.in);
+ 
+  int resultado = i;
+  
+  while (i > 1) {
+    resultado = resultado+(i-1); i--;
+  }
+  return resultado;
+}
+  
+public static void main(String[] args) {
+ 
+  int opcao, aguarda = 0;
+  Scanner keyboard = new Scanner(System.in);
+ 
+   while (aguarda == 0) {
+    System.out.println("--------------------------\nSelecione uma opção:\n1 - Dobro do número \n2 - Qual o maior número \n3 - Média de 3 números \n4 - Fatorial do número \n5 - Soma de elementos anteriores \n0 - Encerrar\n--------------------------");
+ 
+    opcao = keyboard.nextInt();
+     
+    switch (opcao) {
+      case 0: System.out.println("*Programa encerrado*"); aguarda = 1;
+      break;
+        
+      case 1: dobro();
+      break;
+        
+      case 2: maior();
+      break;
+        
+      case 3: media_arit();
+      break;
+        
+      case 4: fatorial();
+      break;
+        
+      case 5:
+      // Função com retorno
+      int entrada, resultado;    
+      System.out.println("Digite o número inteiro:");
+      entrada = keyboard.nextInt();
+      resultado = soma_int(entrada);
+      System.out.println("A soma dos elementos inteiros existentes entre 1 e " + entrada + " é " + resultado);
+      break;
+ 
+      default: System.out.println("Opção inválida");
+     }
+   }  
+ }
+}
